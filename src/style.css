@@ -1,0 +1,108 @@
+/* Cinematic Adventure UI Styles for Untold: The Lost City */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Outfit:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #0d1117;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #f1ede4;
+}
+
+#app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  cursor: grab;
+}
+
+canvas:active {
+  cursor: grabbing;
+}
+
+/* Vignette overlay for cinematic lens depth */
+.cinematic-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: radial-gradient(
+    circle at center,
+    transparent 55%,
+    rgba(10, 14, 20, 0.4) 80%,
+    rgba(6, 8, 12, 0.75) 100%
+  );
+}
+
+/* Crosshair for subtle interaction centering */
+.crosshair {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 235, 185, 0.4);
+  box-shadow: 0 0 6px rgba(255, 215, 130, 0.6);
+  pointer-events: none;
+  z-index: 8;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Controls Hint at Bottom */
+.controls-hint {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  background: rgba(14, 18, 26, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 168, 83, 0.25);
+  border-radius: 30px;
+  padding: 8px 22px;
+  font-size: 13px;
+  color: #d8cfc0;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.85;
+}
+
+.controls-hint span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.controls-hint kbd {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: monospace;
+  font-size: 11px;
+  color: #ffde94;
+}
